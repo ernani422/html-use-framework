@@ -18,11 +18,10 @@ public class MainActivity extends Activity {
     private EditText valorUmEdiText;
     private EditText valorDoisEdiText;
 
-    Intent intent;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
-        this.intent = new Intent (this, ResultActivity.class);
         setContentView(R.layout.activity_main);
         Toast.makeText(this, "Rodrigo Souza", Toast.LENGTH_LONG).show();
         valorUmEdiText = findViewById(R.id.valor_um_edit_text);
@@ -37,11 +36,12 @@ public class MainActivity extends Activity {
         });
     }
     private void changeToResultScreen (){
+        Intent intent = new Intent(this, ResultActivity.class);
         EditText valorUm = (EditText) findViewById(R.id.valor_um_edit_text);
         EditText valorDois = (EditText) findViewById(R.id.valor_dois_edit_text);
         intent.putExtra (EXTRA_VALOR_UM,valorUm.getText().toString());
         intent.putExtra (EXTRA_VALOR_DOIS,valorDois.getText().toString());
-        startActivity( intent);
+        startActivity(intent);
     }
 
 }
