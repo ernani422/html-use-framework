@@ -13,6 +13,7 @@
 
                 <body>
                         <header>
+                            <center>
                             <div class="constainer">
                                 <div class="row">
                                     <h2>
@@ -25,7 +26,6 @@
                          <article>
                                 <div class ="container etxt_center">
                                      <div class="row">
-                                        <center>
                                             <button
                                                  type="button"
                                                  class="btn btn-success"
@@ -35,12 +35,27 @@
                                         </center>   
                                     </div>
                                 </div>
-                                <div id="show-values" class ="row">
-                                     <strong>Desenvolvedor:</strong><span id="developer"></span></span>
-                                     <strong>Versão:</strong><span id="version"></span></span>
-                                     <strong>Valor da variável:</strong><span id="value-of-variable"></span></span>
-                                     <strong>Site da Empresa:</strong><span id="company-site"></span></span>
-                                </div>
+                                <!--div id="show-values" class ="row">
+                                     <strong>Desenvolvedor:</strong><span id="developer"></span><br/>
+                                     <strong>Versão:</strong><span id="version"></span><br/>
+                                     <strong>Valor da variável:</strong><span id="value-of-variable"></span><br/>
+                                     <strong>Site da Empresa:</strong><span id="company-site"></span><br/>
+                                </div-->
+                                <table>
+                                    <div id="show-values" class ="row">
+                                    <tr>
+                                        <th>Desenvolvedor</th> <td id="developer"></td>
+                                    </tr>
+                                    <tr>
+                                        <th>Versão</th> <td id="version"></td>
+                                    </tr>
+                                    <tr>
+                                        <th>Valor da variável</th> <td id="value-of-variable"></td>
+                                    </tr>
+                                    <tr>
+                                        <th>Site da Empresa</th> <td id="company-site"></td>
+                                    </tr>
+                                </table>
                         </article> 
                         </main> 
                     <script src = "app.js"></script>
