@@ -1,5 +1,6 @@
 let a =1
 let b =2*a
+/*
 
 function requestOfServer() {
 
@@ -18,53 +19,53 @@ function requestOfServer() {
 
 }
 
-function submitDataOfUser() {
-    const nameOfUser = $("#name").val()
-    const lasNameOfUser = $("#lastname").val()
-    const ageOfUser = $("#age").val()      
+*/
+
+function submitDataOfCar() {
+
+    const nameOfCar = $("#nomeCarro").val()
+    const modelOfCar = $("#modelo").val()
+    console.log(nameOfCar)
+
     $.ajax({
-        "url": "http://localhost:8000/insert-data",
+        "url": "http://localhost:8000/carro-insert",
         "method": "POST",
         "timeout": 0,
         "headers": {
           "Content-Type": "application/json; charset=UTF-8"
         },
         "data": JSON.stringify({
-            name:nameOfUser,
-            lastname:lasNameOfUser,
-            age:ageOfUser
+            nomeCarro:nameOfCar, 
+            modelo:modelOfCar
         }) 
     }).done(function (response) {
-        if (response.success) {
-            $("#success-record-msg").css('display','block')
+        if (response.includes('true')) {
+            console.log("ESTÁ ENTRRANDO EM CIMA")
+            $("#success-record-msg").css('display', 'block')
             $("#error-record-msg").css('display','none')
 
-            $("#name").val('')
-            $("#lastname").val('')
-            $("#age").val('')            
+            $("#nomeCarro").val('')
+            $("#modelo").val('')           
         } else {
+            console.log("ESTÁ ENTRRANDO EM BAIXO")
             let errorMsg;
             let errorWidth = '350px'
 
-            if (response.missingAttribute === 'name') {
-                errorMsg = 'O campo de nome está ausente, pode preencher'
+            if (response.missingAttribute === 'nome_carro') {
+                errorMsg = 'O campo de nome do carro está ausente, pode preencher'
                 errorWidth = '415px'
             }
 
-            if (response.missingAttribute === 'lastname') {
-                errorMsg = 'O campo de sobrenome está ausente, pode preencher'
+            if (response.missingAttribute === 'modelo_carro') {
+                errorMsg = 'O campo modelo está ausente, pode preencher'
                 errorWidth = '435px'
-            }
-
-            if (response.missingAttribute === 'age') {
-                errorMsg = 'O campo de idade está ausente, pode preencher'
-                errorWidth = '415px'
             }
 
             $("#error-record-msg").css('display','block')
             $("#success-record-msg").css('display','none')
             $("#content-error-record-msg").html(errorMsg)
             $("#error-record-msg").css('width',errorWidth)
+           
         }
 
     });
